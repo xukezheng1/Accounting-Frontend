@@ -1,8 +1,9 @@
-﻿import { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Button, Input, Text, View } from '@tarojs/components';
 import { addGoal, getGoals, toggleGoal, updateGoalAmount } from '../../../services/goal';
 import { EVENTS } from '../../../services/events';
 import { usePageRefresh } from '../../../services/use-page-refresh';
+import { useTheme } from '../../../services/use-theme';
 import './index.scss';
 
 export default function GoalPage() {
@@ -10,6 +11,7 @@ export default function GoalPage() {
   const [target, setTarget] = useState('');
   const [current, setCurrent] = useState('');
   const [goals, setGoals] = useState(getGoals());
+  const { themeClass } = useTheme();
 
   const loadGoals = useCallback(async () => {
     setGoals(getGoals());
@@ -26,7 +28,7 @@ export default function GoalPage() {
   }
 
   return (
-    <View className='ios-page'>
+    <View className={`ios-page ${themeClass}`}>
       <View className='ios-card'>
         <Input className='ios-input' placeholder='目标名称（例如：旅行基金）' value={title} onInput={(e) => setTitle(e.detail.value)} />
         <Input className='ios-input' type='number' placeholder='目标金额（元）' value={target} onInput={(e) => setTarget(e.detail.value)} />

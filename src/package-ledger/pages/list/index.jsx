@@ -5,13 +5,18 @@ import { fetchTransactions } from '../../../api/modules/transaction';
 import { getSession } from '../../../services/session';
 import { EVENTS } from '../../../services/events';
 import { usePageRefresh } from '../../../services/use-page-refresh';
+import { useTheme } from '../../../services/use-theme';
 import { showError } from '../../../api/client';
 import './index.scss';
+
+const directionOptions = ['all', 'expense', 'income'];
+const directionLabels = ['全部', '支出', '收入'];
 
 export default function LedgerListPage() {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [direction, setDirection] = useState('all');
+  const { themeClass } = useTheme();
 
   const loadData = useCallback(async () => {
     try {
@@ -21,7 +26,7 @@ export default function LedgerListPage() {
         setList([]);
         return;
       }
-      const rows = await fetchTransactions(session.activeBookId, 200);
+      const rows = await fetchTransactions(session.activeBookId, 240);
       setList(rows);
     } catch (error) {
       showError(error);
@@ -38,9 +43,21 @@ export default function LedgerListPage() {
   }, [list, direction]);
 
   return (
-    <View className='ios-page'>
+    <View className={`ios-page ${themeClass}`}>
+      <View className='monoHeader'>
+        <View>
+          <Text className='monoTitle'>账单明细</Text>
+          <Text className='monoSubTitle'>按方向筛选历史记录</Text>
+        </View>
+      </View>
+
       <View className='ios-card'>
-        <Picker mode='selector' range={['全部', '支出', '收入']} value={['all', 'expense', 'income'].indexOf(direction)} onChange={(e) => setDirection(['all', 'expense', 'income'][Number(e.detail.value)])}>
+        <Picker
+          mode='selector'
+          range={directionLabels}
+          value={directionOptions.indexOf(direction)}
+          onChange={(e) => setDirection(directionOptions[Number(e.detail.value)])}
+        >
           <View className='ios-picker'>筛选：{direction === 'all' ? '全部' : direction === 'expense' ? '支出' : '收入'}</View>
         </Picker>
       </View>
@@ -64,5 +81,3 @@ export default function LedgerListPage() {
     </View>
   );
 }
-
-

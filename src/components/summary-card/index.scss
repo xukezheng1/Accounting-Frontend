@@ -1,26 +1,27 @@
-﻿.summaryCard {
+.summaryCard {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .summaryCardTitle {
   font-size: 24px;
-  color: #8e8e93;
+  color: var(--text-secondary);
 }
 
 .summaryCardValue {
   font-size: 40px;
   line-height: 1.1;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .summaryCardHint {
   font-size: 22px;
-  color: #007aff;
+  color: var(--accent);
 }
-

@@ -31,16 +31,41 @@
     navigationBarTextStyle: 'black'
   },
   tabBar: {
-    color: '#8e8e93',
-    selectedColor: '#007aff',
+    color: '#7b8088',
+    selectedColor: '#111111',
     borderStyle: 'black',
     backgroundColor: '#ffffff',
     list: [
-      { pagePath: 'pages/home/index', text: '首页' },
-      { pagePath: 'pages/ledger/index', text: '记账' },
-      { pagePath: 'pages/ai/index', text: '智能' },
-      { pagePath: 'pages/family/index', text: '家庭' },
-      { pagePath: 'pages/mine/index', text: '我的' }
+      {
+        pagePath: 'pages/home/index',
+        text: '首页',
+        iconPath: 'assets/tabbar/home.png',
+        selectedIconPath: 'assets/tabbar/home-active.png'
+      },
+      {
+        pagePath: 'pages/ledger/index',
+        text: '记账',
+        iconPath: 'assets/tabbar/ledger.png',
+        selectedIconPath: 'assets/tabbar/ledger-active.png'
+      },
+      {
+        pagePath: 'pages/ai/index',
+        text: '智能',
+        iconPath: 'assets/tabbar/ai.png',
+        selectedIconPath: 'assets/tabbar/ai-active.png'
+      },
+      {
+        pagePath: 'pages/family/index',
+        text: '家庭',
+        iconPath: 'assets/tabbar/family.png',
+        selectedIconPath: 'assets/tabbar/family-active.png'
+      },
+      {
+        pagePath: 'pages/mine/index',
+        text: '我的',
+        iconPath: 'assets/tabbar/mine.png',
+        selectedIconPath: 'assets/tabbar/mine-active.png'
+      }
     ]
   }
 });

@@ -1,4 +1,4 @@
-﻿import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Text, View } from '@tarojs/components';
 import LoadingState from '../../../components/loading-state';
 import { fetchInsights } from '../../../api/modules/ai';
@@ -6,6 +6,7 @@ import { fetchPrediction, fetchOverview } from '../../../api/modules/stats';
 import { getSession } from '../../../services/session';
 import { EVENTS } from '../../../services/events';
 import { usePageRefresh } from '../../../services/use-page-refresh';
+import { useTheme } from '../../../services/use-theme';
 import { showError } from '../../../api/client';
 import './index.scss';
 
@@ -21,6 +22,7 @@ export default function AIReportPage() {
   const [prediction, setPrediction] = useState(null);
   const [overview, setOverview] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { themeClass } = useTheme();
 
   const loadData = useCallback(async () => {
     try {
@@ -67,7 +69,7 @@ export default function AIReportPage() {
   }, [insights, prediction, overview]);
 
   return (
-    <View className='ios-page'>
+    <View className={`ios-page ${themeClass}`}>
       <View className='ios-card'>
         <Text className='ios-title'>AI报告页</Text>
         <Text className='ios-subtitle'>自动生成本月财务诊断与建议</Text>

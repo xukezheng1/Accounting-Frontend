@@ -1,12 +1,14 @@
-﻿import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Text, View } from '@tarojs/components';
 import { getGoals } from '../../../services/goal';
 import { EVENTS } from '../../../services/events';
 import { usePageRefresh } from '../../../services/use-page-refresh';
+import { useTheme } from '../../../services/use-theme';
 import './index.scss';
 
 export default function GoalProgressPage() {
   const [goals, setGoals] = useState(getGoals());
+  const { themeClass } = useTheme();
 
   const loadGoals = useCallback(async () => {
     setGoals(getGoals());
@@ -24,7 +26,7 @@ export default function GoalProgressPage() {
   }, [goals]);
 
   return (
-    <View className='ios-page'>
+    <View className={`ios-page ${themeClass}`}>
       <View className='ios-card'>
         <Text className='ringTitle'>总体完成度</Text>
         <View className='ringWrap'>

@@ -1,11 +1,12 @@
-﻿import Taro from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 
 export const EVENTS = {
   SESSION_UPDATED: 'session:updated',
   BOOK_UPDATED: 'book:updated',
   MEMBER_UPDATED: 'member:updated',
   TRANSACTION_UPDATED: 'transaction:updated',
-  GOAL_UPDATED: 'goal:updated'
+  GOAL_UPDATED: 'goal:updated',
+  THEME_UPDATED: 'theme:updated'
 };
 
 export function dispatchEvent(name, payload) {

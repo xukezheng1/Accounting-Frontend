@@ -1,6 +1,4 @@
-﻿export default definePageConfig({
-  navigationBarTitleText: '新增记账',
+export default definePageConfig({
+  navigationStyle: 'custom',
   enablePullDownRefresh: true
 });
-
-

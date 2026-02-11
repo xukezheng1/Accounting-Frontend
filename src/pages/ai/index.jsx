@@ -8,6 +8,7 @@ import { fetchPrediction } from '../../api/modules/stats';
 import { getSession } from '../../services/session';
 import { EVENTS } from '../../services/events';
 import { usePageRefresh } from '../../services/use-page-refresh';
+import { useTheme } from '../../services/use-theme';
 import { showError } from '../../api/client';
 import './index.scss';
 
@@ -18,6 +19,7 @@ export default function AIPage() {
   const [reply, setReply] = useState('');
   const [loading, setLoading] = useState(true);
   const [asking, setAsking] = useState(false);
+  const { themeClass } = useTheme();
 
   const loadData = useCallback(async () => {
     try {
@@ -50,7 +52,14 @@ export default function AIPage() {
   }
 
   return (
-    <View className='ios-page'>
+    <View className={`ios-page ${themeClass}`}>
+      <View className='monoHeader'>
+        <View>
+          <Text className='monoTitle'>智能分析</Text>
+          <Text className='monoSubTitle'>洞察、预测与问答</Text>
+        </View>
+      </View>
+
       <SectionBlock title='本月预测'>
         {loading ? <LoadingState text='正在计算预测...' /> : null}
         {!loading ? (
@@ -63,12 +72,12 @@ export default function AIPage() {
         ) : null}
       </SectionBlock>
 
-      <SectionBlock title='智能助手'>
+      <SectionBlock title='AI 助手'>
         <Input className='ios-input' value={prompt} onInput={(e) => setPrompt(e.detail.value)} />
         <View className='ios-row-wrap'>
           <Button type='primary' loading={asking} onClick={submitPrompt}>发送问题</Button>
-          <Button onClick={() => Taro.navigateTo({ url: '/package-ai/pages/decision/index' })}>购买决策助手</Button>
-          <Button onClick={() => Taro.navigateTo({ url: '/package-report/pages/ai-report/index' })}>查看AI报告</Button>
+          <Button onClick={() => Taro.navigateTo({ url: '/package-ai/pages/decision/index' })}>买前决策</Button>
+          <Button onClick={() => Taro.navigateTo({ url: '/package-report/pages/ai-report/index' })}>查看报告</Button>
         </View>
         {reply ? <View className='reply'>{reply}</View> : null}
       </SectionBlock>
@@ -88,5 +97,3 @@ export default function AIPage() {
     </View>
   );
 }
-
-

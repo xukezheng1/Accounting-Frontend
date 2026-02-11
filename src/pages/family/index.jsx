@@ -6,6 +6,7 @@ import { createBook, createMember, fetchMembers, joinBook } from '../../api/modu
 import { getSession, setSession } from '../../services/session';
 import { EVENTS, dispatchEvent } from '../../services/events';
 import { usePageRefresh } from '../../services/use-page-refresh';
+import { useTheme } from '../../services/use-theme';
 import { showError } from '../../api/client';
 import './index.scss';
 
@@ -24,6 +25,7 @@ export default function FamilyPage() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [inviteCode, setInviteCode] = useState('');
   const [loading, setLoading] = useState(true);
+  const { themeClass } = useTheme();
 
   const loadMembers = useCallback(async () => {
     try {
@@ -91,7 +93,14 @@ export default function FamilyPage() {
   const activeBook = session.books.find((item) => item.id === session.activeBookId);
 
   return (
-    <View className='ios-page'>
+    <View className={`ios-page ${themeClass}`}>
+      <View className='monoHeader'>
+        <View>
+          <Text className='monoTitle'>家庭协作</Text>
+          <Text className='monoSubTitle'>成员管理与权限控制</Text>
+        </View>
+      </View>
+
       <SectionBlock title='当前家庭账本'>
         <Text>{activeBook?.name || '当前不是家庭账本，请先创建或加入'}</Text>
         {activeBook?.inviteCode ? <Text className='ios-tag'>邀请码：{activeBook.inviteCode}</Text> : null}
@@ -99,12 +108,12 @@ export default function FamilyPage() {
 
       <SectionBlock title='创建家庭账本'>
         <Input className='ios-input' placeholder='输入家庭账本名称' value={bookName} onInput={(e) => setBookName(e.detail.value)} />
-        <Button type='primary' onClick={createFamilyBook}>创建</Button>
+        <Button type='primary' onClick={createFamilyBook}>创建账本</Button>
       </SectionBlock>
 
       <SectionBlock title='加入家庭账本'>
         <Input className='ios-input' placeholder='输入邀请码' value={inviteCode} onInput={(e) => setInviteCode(e.detail.value)} />
-        <Button onClick={joinByCode}>加入</Button>
+        <Button onClick={joinByCode}>加入账本</Button>
       </SectionBlock>
 
       <SectionBlock title='成员管理'>
@@ -130,5 +139,3 @@ export default function FamilyPage() {
     </View>
   );
 }
-
-

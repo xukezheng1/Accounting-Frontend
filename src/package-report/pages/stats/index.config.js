@@ -1,6 +1,4 @@
-﻿export default definePageConfig({
-  navigationBarTitleText: '统计图表页',
+export default definePageConfig({
+  navigationStyle: 'custom',
   enablePullDownRefresh: true
 });
-
-

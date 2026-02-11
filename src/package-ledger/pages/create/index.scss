@@ -1,6 +1,178 @@
-﻿.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.recordPage {
+  animation: fadeInUp 0.3s ease-out;
 }
 
+.recordHeader {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.headerBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.recordTitle {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.recordMain {
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--card-glow);
+}
+
+.directionTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 18px;
+  background: var(--chip-bg);
+  margin-bottom: 16px;
+}
+
+.directionTab {
+  text-align: center;
+  padding: 12px 8px;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.directionTabActive {
+  color: #fff;
+  background: var(--chip-active-bg);
+}
+
+.amountBlock {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.amountLabel {
+  display: block;
+  font-size: 22px;
+  color: var(--text-secondary);
+}
+
+.amountValue {
+  display: block;
+  margin-top: 6px;
+  font-size: 74px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.fieldBlock {
+  margin: 10px 0 12px;
+}
+
+.fieldTitle {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.categoryCard {
+  padding: 10px 6px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  background: var(--surface-soft);
+}
+
+.categoryCardActive {
+  border-color: transparent;
+  background: linear-gradient(140deg, var(--accent-soft), rgba(151, 115, 255, 0.2));
+}
+
+.categoryIcon {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.categoryName {
+  display: block;
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+.emotionRow,
+.memberRow {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.emotionChip,
+.memberChip {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  font-size: 22px;
+  color: var(--text-secondary);
+}
+
+.emotionChipActive,
+.memberChipActive {
+  color: #fff;
+  border-color: transparent;
+  background: var(--chip-active-bg);
+}
+
+.noteInput {
+  margin-top: 8px;
+}
+
+.keypad {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.key {
+  height: 88px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.keyDanger {
+  color: var(--danger);
+}
+
+.saveBtn {
+  margin-top: 14px;
+}

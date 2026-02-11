@@ -7,12 +7,14 @@ import { fetchTransactions } from '../../api/modules/transaction';
 import { getSession } from '../../services/session';
 import { EVENTS } from '../../services/events';
 import { usePageRefresh } from '../../services/use-page-refresh';
+import { useTheme } from '../../services/use-theme';
 import { showError } from '../../api/client';
 import './index.scss';
 
 export default function LedgerPage() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { themeClass } = useTheme();
 
   const loadList = useCallback(async () => {
     try {
@@ -22,7 +24,7 @@ export default function LedgerPage() {
         setTransactions([]);
         return;
       }
-      const rows = await fetchTransactions(session.activeBookId, 12);
+      const rows = await fetchTransactions(session.activeBookId, 20);
       setTransactions(rows);
     } catch (error) {
       showError(error);
@@ -34,10 +36,19 @@ export default function LedgerPage() {
   usePageRefresh(loadList, [EVENTS.TRANSACTION_UPDATED, EVENTS.SESSION_UPDATED]);
 
   return (
-    <View className='ios-page'>
-      <SectionBlock title='记账操作'>
+    <View className={`ios-page ${themeClass}`}>
+      <View className='monoHeader'>
+        <View>
+          <Text className='monoTitle'>记账</Text>
+          <Text className='monoSubTitle'>最近记录与快捷操作</Text>
+        </View>
+      </View>
+
+      <SectionBlock title='账单操作'>
         <View className='ios-row'>
-          <Button type='primary' onClick={() => Taro.navigateTo({ url: '/package-ledger/pages/create/index' })}>新增账单</Button>
+          <Button type='primary' onClick={() => Taro.navigateTo({ url: '/package-ledger/pages/create/index' })}>
+            新增账单
+          </Button>
           <Button onClick={() => Taro.navigateTo({ url: '/package-ledger/pages/list/index' })}>查看全部</Button>
         </View>
       </SectionBlock>
@@ -61,5 +72,3 @@ export default function LedgerPage() {
     </View>
   );
 }
-
-
