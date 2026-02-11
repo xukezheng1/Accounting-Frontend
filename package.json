@@ -2,20 +2,37 @@
   "name": "haojizhang-frontend",
   "version": "1.0.0",
   "private": true,
+  "description": "Taro frontend for 好记账",
   "scripts": {
-    "dev:h5": "uni -p h5",
-    "dev:mp-weixin": "uni -p mp-weixin",
-    "build:h5": "uni build -p h5",
-    "build:mp-weixin": "uni build -p mp-weixin"
+    "dev:weapp": "taro build --type weapp --watch",
+    "dev:mp-weixin": "taro build --type weapp --watch",
+    "build:weapp": "taro build --type weapp",
+    "build:mp-weixin": "taro build --type weapp",
+    "dev:h5": "taro build --type h5 --watch",
+    "build:h5": "taro build --type h5"
   },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
   "dependencies": {
-    "uview-plus": "^3.5.20",
-    "vue": "^3.5.12"
+    "@tarojs/components": "^4.1.11",
+    "@tarojs/plugin-framework-react": "^4.1.11",
+    "@tarojs/plugin-platform-weapp": "^4.1.11",
+    "@tarojs/runtime": "^4.1.11",
+    "@tarojs/shared": "^4.1.11",
+    "@tarojs/taro": "^4.1.11",
+    "@vitejs/plugin-react": "^4.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@dcloudio/types": "latest",
-    "@dcloudio/vite-plugin-uni": "latest",
-    "sass": "^1.79.4",
-    "vite": "latest"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@tarojs/cli": "^4.1.11",
+    "@tarojs/vite-runner": "^4.1.11",
+    "babel-preset-taro": "^4.1.11",
+    "typescript": "^5.6.3"
   }
 }
