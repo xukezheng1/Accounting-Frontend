@@ -1,0 +1,26 @@
+﻿.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.summaryCardTitle {
+  font-size: 24px;
+  color: #8e8e93;
+}
+
+.summaryCardValue {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.summaryCardHint {
+  font-size: 22px;
+  color: #007aff;
+}
+

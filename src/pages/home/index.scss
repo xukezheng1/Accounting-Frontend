@@ -1,0 +1,25 @@
+﻿.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.alertItem {
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff7f1;
+}
+
+.alertTitle {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.alertDesc {
+  font-size: 24px;
+  color: #636366;
+}
+

@@ -1,0 +1,62 @@
+﻿.ringTitle {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.ringWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.ringOuter {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(#007aff 0deg, #8ec5ff 270deg, #e5e5ea 270deg 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringInner {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringValue {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.goalName {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.barTrack {
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: #e5e5ea;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #34c759, #30d158);
+}
+
+.goalMeta {
+  margin-top: 8px;
+  color: #636366;
+  font-size: 24px;
+}
+

@@ -1,4 +1,4 @@
-module.exports = {
+﻿module.exports = {
   env: {
     NODE_ENV: 'development'
   },
@@ -6,3 +6,4 @@ module.exports = {
   mini: {},
   h5: {}
 };
+

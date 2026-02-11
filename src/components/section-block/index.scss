@@ -1,0 +1,27 @@
+﻿.sectionBlock {
+  margin-bottom: 16px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.sectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+

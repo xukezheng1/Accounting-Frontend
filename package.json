@@ -2,7 +2,7 @@
   "name": "haojizhang-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "Taro frontend for 好记账",
+  "description": "Taro frontend for Smart Accounting",
   "scripts": {
     "dev:weapp": "taro build --type weapp --watch",
     "dev:mp-weixin": "taro build --type weapp --watch",
@@ -20,6 +20,8 @@
     "@tarojs/components": "^4.1.11",
     "@tarojs/plugin-framework-react": "^4.1.11",
     "@tarojs/plugin-platform-weapp": "^4.1.11",
+    "@tarojs/plugin-platform-h5": "^4.1.11",
+    "@tarojs/react": "^4.1.11",
     "@tarojs/runtime": "^4.1.11",
     "@tarojs/shared": "^4.1.11",
     "@tarojs/taro": "^4.1.11",

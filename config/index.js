@@ -1,4 +1,4 @@
-module.exports = {
+﻿module.exports = {
   projectName: 'haojizhang-frontend',
   date: '2026-02-11',
   designWidth: 750,
@@ -8,7 +8,7 @@ module.exports = {
     828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: 'dist/weapp',
   plugins: [],
   defineConstants: {},
   copy: {
@@ -22,9 +22,13 @@ module.exports = {
   cache: {
     enable: true
   },
-  mini: {},
+  mini: {
+    outputRoot: 'dist/weapp'
+  },
   h5: {
+    outputRoot: 'dist/h5',
     publicPath: '/',
     staticDirectory: 'static'
   }
 };
+
