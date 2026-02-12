@@ -9,6 +9,8 @@ export const api = {
   joinBook: (payload) => request('/books/join', 'POST', payload),
   getBookMembers: (bookId) => request(`/books/${bookId}/members`),
   addBookMember: (bookId, payload) => request(`/books/${bookId}/members`, 'POST', payload),
+  updateMemberRole: (bookId, memberId, role) =>
+    request(`/books/${bookId}/members/${memberId}/role`, 'PATCH', { role }),
 
   getMetaOptions: (bookId) => request(`/meta/options?bookId=${bookId}`),
 

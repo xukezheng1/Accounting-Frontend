@@ -31,7 +31,7 @@
       <view class="ai-content">{{ item.content }}</view>
     </view>
 
-    <AppTabbar current="/pages/home/index" />
+    <AppTabbar current="/pages/home/index" :badge-map="{ '/pages/ai/index': insights.length }" />
   </view>
 </template>
 

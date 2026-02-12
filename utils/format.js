@@ -14,3 +14,14 @@ export function roleText(role) {
     read: '只读成员'
   }[role] || role
 }
+
+export function shortTime(value) {
+  if (!value) return ''
+  const d = new Date(value)
+  if (Number.isNaN(d.getTime())) return String(value)
+  const m = `${d.getMonth() + 1}`.padStart(2, '0')
+  const day = `${d.getDate()}`.padStart(2, '0')
+  const h = `${d.getHours()}`.padStart(2, '0')
+  const min = `${d.getMinutes()}`.padStart(2, '0')
+  return `${m}-${day} ${h}:${min}`
+}
