@@ -1,10 +1,9 @@
-$u-primary: #4a90b8;
-$u-success: #6cae86;
-$u-warning: #d9a56d;
-$u-error: #d96f7e;
-$u-info: #7f8da0;
+/**
+ * uni.scss - Global SCSS variables and mixins
+ * This file is automatically injected into all SCSS files by uni-app.
+ */
 
-$u-bg-color: #f2f5f9;
-$u-content-color: #3a4a5d;
-$u-border-color: #e6ebf1;
-$u-font-size-base: 28rpx;
+// Import uview-plus variables and mixins
+@import "uview-plus/theme.scss";
+
+// Custom global variables can be added here
